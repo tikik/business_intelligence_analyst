@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Technical Appendix Slides</title>
+
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Lexend:wght@400;600;700&display=swap" rel="stylesheet"/>
+
+<style>
+body { font-family: 'Inter', sans-serif; overflow:hidden; background:#e2e8f0; }
+.header-font { font-family: 'Lexend', sans-serif; }
+
+.slide {
+  width:1280px;
+  height:720px;
+  background:white;
+  display:none;
+  flex-direction:column;
+  box-shadow:0 20px 40px rgba(0,0,0,0.15);
+}
+
+.slide.active { display:flex; }
+
+.codebox {
+  background:#0f172a;
+  color:#e2e8f0;
+  border-radius:12px;
+  padding:16px;
+  overflow:auto;
+  font-size:12px;
+  line-height:1.4;
+}
+
+.nav-hint {
+  position:fixed;
+  bottom:20px;
+  right:30px;
+  font-size:12px;
+  color:#475569;
+}
+</style>
+</head>
+
+<body class="flex justify-center items-center">
+
+<!-- SLIDE 1 -->
+<div class="slide active" id="slide1">
+
+<header class="bg-[#0f172a] text-white px-10 py-6 border-b-4 border-blue-500">
+<h1 class="text-3xl font-bold header-font">Technical Appendix</h1>
+<p class="text-blue-300 text-sm uppercase tracking-widest mt-1">
+Certified Logic & BI Delivery Proof
+</p>
+</header>
+
+<div class="flex-1 p-10 flex flex-col justify-center space-y-6">
+<div class="bg-slate-50 p-6 rounded-xl border border-slate-200">
+<p class="text-lg font-semibold text-slate-800">
+This section demonstrates:
+</p>
+<ul class="mt-4 space-y-3 text-sm text-slate-700">
+<li>• Reusable certified SQL views</li>
+<li>• Cross-system integration logic</li>
+<li>• Validation controls</li>
+<li>• Power BI measure alignment</li>
+</ul>
+</div>
+
+<div class="bg-blue-50 border-l-4 border-blue-500 p-4 italic text-sm text-blue-900">
+All data shown is synthetic and governance-aligned.
+</div>
+</div>
+
+</div>
+
+<!-- SLIDE 2 -->
+<div class="slide" id="slide2">
+
+<header class="bg-[#0f172a] text-white px-10 py-6 border-b-4 border-blue-500">
+<h1 class="text-2xl font-bold header-font">Certified View: Student Momentum</h1>
+</header>
+
+<div class="flex-1 p-10 space-y-6">
+
+<p class="text-sm text-slate-600">
+Census-aligned momentum flag (15-credit threshold example).
+</p>
+
+<div class="codebox">
+<pre><code>CREATE OR ALTER VIEW dbo.vw_student_momentum AS
+SELECT
+  student_id,
+  term_code,
+  program_code,
+  credits_attempted,
+  CASE WHEN credits_attempted >= 15 THEN 1 ELSE 0 END AS momentum_15_flag,
+  CASE WHEN retained_next_term = 1 THEN 1 ELSE 0 END AS persisted_flag
+FROM dbo.banner_enrollment
+WHERE census_flag = 1;
+GO</code></pre>
+</div>
+
+</div>
+</div>
+
+<!-- SLIDE 3 -->
+<div class="slide" id="slide3">
+
+<header class="bg-[#0f172a] text-white px-10 py-6 border-b-4 border-blue-500">
+<h1 class="text-2xl font-bold header-font">Integrated Program Summary</h1>
+</header>
+
+<div class="flex-1 p-10 space-y-6">
+
+<p class="text-sm text-slate-600">
+Aggregates Banner + Navigate + Ad Astra into executive-ready metrics.
+</p>
+
+<div class="codebox">
+<pre><code>SELECT
+  e.term_code,
+  e.program_code,
+  COUNT(DISTINCT e.student_id) AS headcount,
+  COUNT(DISTINCT CASE WHEN r.risk_level IN ('High','Medium')
+       THEN e.student_id END) AS at_risk,
+  ROUND(
+    CAST(COUNT(DISTINCT CASE WHEN r.risk_level IN ('High','Medium')
+       THEN e.student_id END) AS FLOAT)
+    / NULLIF(COUNT(DISTINCT e.student_id),0) * 100, 2
+  ) AS at_risk_rate_pct
+FROM banner_enrollment e
+LEFT JOIN navigate_risk_signals r
+  ON r.student_id = e.student_id
+ AND r.term_code = e.term_code
+WHERE e.census_flag = 1
+GROUP BY e.term_code, e.program_code;
+</code></pre>
+</div>
+
+</div>
+</div>
+
+<!-- SLIDE 4 -->
+<div class="slide" id="slide4">
+
+<header class="bg-[#0f172a] text-white px-10 py-6 border-b-4 border-blue-500">
+<h1 class="text-2xl font-bold header-font">Validation Controls</h1>
+</header>
+
+<div class="flex-1 p-10 space-y-6">
+
+<p class="text-sm text-slate-600">
+Prevents inflated risk or retention metrics due to orphan records.
+</p>
+
+<div class="codebox">
+<pre><code>SELECT r.student_id, r.term_code
+FROM navigate_risk_signals r
+LEFT JOIN banner_enrollment e
+  ON e.student_id = r.student_id
+ AND e.term_code = r.term_code
+WHERE e.student_id IS NULL;
+</code></pre>
+</div>
+
+</div>
+</div>
+
+<!-- SLIDE 5 -->
+<div class="slide" id="slide5">
+
+<header class="bg-[#0f172a] text-white px-10 py-6 border-b-4 border-blue-500">
+<h1 class="text-2xl font-bold header-font">Power BI Measure Alignment</h1>
+</header>
+
+<div class="flex-1 p-10 space-y-6">
+
+<div class="codebox">
+<pre><code>// Headcount
+Headcount :=
+CALCULATE(
+  DISTINCTCOUNT(banner_enrollment[student_id]),
+  banner_enrollment[census_flag] = 1
+)
+
+// At-Risk %
+AtRisk % :=
+DIVIDE(
+  [AtRisk Students],
+  [Headcount],
+  0
+)
+
+// Fill Rate
+Fill Rate % :=
+DIVIDE(
+  SUM(adastra_sections[enrolled_count]),
+  SUM(adastra_sections[capacity]),
+  0
+)
+</code></pre>
+</div>
+
+</div>
+</div>
+
+<div class="nav-hint">
+Use ← → arrow keys to navigate
+</div>
+
+<script>
+let currentSlide = 1;
+const totalSlides = 5;
+
+document.addEventListener('keydown', function(e) {
+  if (e.key === "ArrowRight") {
+    if (currentSlide < totalSlides) {
+      document.getElementById("slide"+currentSlide).classList.remove("active");
+      currentSlide++;
+      document.getElementById("slide"+currentSlide).classList.add("active");
+    }
+  }
+  if (e.key === "ArrowLeft") {
+    if (currentSlide > 1) {
+      document.getElementById("slide"+currentSlide).classList.remove("active");
+      currentSlide--;
+      document.getElementById("slide"+currentSlide).classList.add("active");
+    }
+  }
+});
+</script>
+
+</body>
+</html>
