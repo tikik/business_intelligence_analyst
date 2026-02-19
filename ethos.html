@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Ethos-Aligned Analytics Prototype</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Lexend:wght@400;600;700&display=swap" rel="stylesheet"/>
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .header-font { font-family: 'Lexend', sans-serif; }
+        .slide-container { width: 1280px; height: 720px; overflow: auto; display: flex; flex-direction: column; }
+        .arch-step { position: relative; transition: all 0.2s; }
+        .arch-step::after {
+            content: '';
+            position: absolute;
+            left: 1.25rem;
+            bottom: -1.5rem;
+            width: 2px;
+            height: 1.5rem;
+            background: #E2E8F0;
+        }
+        .arch-step:last-child::after { display: none; }
+    </style>
+</head>
+<body class="bg-slate-200 p-8 flex justify-center items-center">
+    <div class="slide-container bg-white shadow-2xl rounded-sm">
+
+        <header class="bg-[#0f172a] text-white px-10 py-6 flex justify-between items-center border-b-4 border-blue-500">
+            <div>
+                <h1 class="text-3xl font-bold header-font tracking-tight">Ethos-Aligned Institutional Analytics</h1>
+                <p class="text-blue-300 text-sm mt-1 uppercase tracking-widest font-medium">
+                    Prototype v1.0 • Governance-First Integration • Decision-Support Ready
+                </p>
+            </div>
+            <div class="flex items-center gap-4 bg-slate-800/50 px-4 py-2 rounded-lg border border-slate-700">
+                <i class="fas fa-layer-group text-blue-400 text-xl"></i>
+                <div class="text-xs">
+                    <p class="text-slate-400">Status</p>
+                    <p class="font-bold">DRAFT CONCEPT</p>
+                </div>
+            </div>
+        </header>
+
+        <div class="flex-1 flex p-10 gap-10 overflow-hidden">
+
+            <!-- LEFT COLUMN -->
+            <div class="w-1/3 flex flex-col gap-6">
+                <section class="flex-1">
+                    <h2 class="text-slate-900 font-bold text-lg mb-4 flex items-center gap-2">
+                        <span class="bg-blue-600 text-white w-6 h-6 rounded flex items-center justify-center text-xs">1</span>
+                        STRATEGIC PURPOSE
+                    </h2>
+
+                    <div class="space-y-4">
+                        <div class="bg-slate-50 p-4 rounded-lg border border-slate-200">
+                            <p class="text-[10px] font-bold text-slate-500 uppercase mb-3">Core Data Ecosystem</p>
+                            <div class="grid grid-cols-2 gap-2">
+                                <div class="flex items-center gap-2 text-xs font-semibold bg-white p-2 rounded border border-slate-100 shadow-sm">
+                                    <i class="fas fa-university text-blue-600"></i> Banner (SIS)
+                                </div>
+                                <div class="flex items-center gap-2 text-xs font-semibold bg-white p-2 rounded border border-slate-100 shadow-sm">
+                                    <i class="fas fa-route text-emerald-600"></i> Navigate (Advising)
+                                </div>
+                                <div class="flex items-center gap-2 text-xs font-semibold bg-white p-2 rounded border border-slate-100 shadow-sm">
+                                    <i class="fas fa-calendar-check text-orange-600"></i> Ad Astra (Scheduling)
+                                </div>
+                                <div class="flex items-center gap-2 text-xs font-semibold bg-white p-2 rounded border border-slate-100 shadow-sm">
+                                    <i class="fas fa-project-diagram text-purple-600"></i> Ethos (Integration)
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="p-2">
+                            <p class="text-[10px] font-bold text-slate-500 uppercase mb-3">Decision Questions This Enables</p>
+                            <ul class="space-y-2.5">
+                                <li class="flex items-start gap-3 text-sm text-slate-700">
+                                    <i class="fas fa-check text-blue-500 mt-1 text-xs"></i>
+                                    <span><strong>Momentum:</strong> Who is on pace for 15 credits and Fall→Spring persistence?</span>
+                                </li>
+                                <li class="flex items-start gap-3 text-sm text-slate-700">
+                                    <i class="fas fa-check text-blue-500 mt-1 text-xs"></i>
+                                    <span><strong>Capacity:</strong> Where are lab rooms and high-demand sections constraining growth?</span>
+                                </li>
+                                <li class="flex items-start gap-3 text-sm text-slate-700">
+                                    <i class="fas fa-check text-blue-500 mt-1 text-xs"></i>
+                                    <span><strong>Credentials:</strong> What certificates/AAS completions are we capturing—or missing—before transfer?</span>
+                                </li>
+                                <li class="flex items-start gap-3 text-sm text-slate-700">
+                                    <i class="fas fa-check text-blue-500 mt-1 text-xs"></i>
+                                    <span><strong>Pathways:</strong> How do we support Bachelor pathway expansion without breaking certified reporting?</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="bg-white border border-slate-200 rounded-lg p-4">
+                            <p class="text-[10px] font-bold text-slate-500 uppercase mb-2">What This Prototype Demonstrates</p>
+                            <ul class="text-xs text-slate-600 space-y-1.5">
+                                <li class="flex gap-2"><span class="text-slate-400">•</span> Term-aligned integration across systems (no silent mismatches)</li>
+                                <li class="flex gap-2"><span class="text-slate-400">•</span> Certified metrics layer (definitions are transparent and reusable)</li>
+                                <li class="flex gap-2"><span class="text-slate-400">•</span> Privacy-by-design (aggregation + small-cell suppression)</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+
+                <div class="bg-amber-50 border-l-4 border-amber-400 p-4 text-[11px] text-amber-900 leading-relaxed italic">
+                    “Move from reactive reporting to proactive student-lifecycle decision support — while protecting FERPA and certified definitions.”
+                </div>
+            </div>
+
+            <!-- RIGHT COLUMN -->
+            <div class="w-2/3 flex flex-col gap-6">
+                <section class="bg-slate-50 rounded-2xl border border-slate-200 p-8 flex-1">
+                    <h2 class="text-slate-900 font-bold text-lg mb-8 flex items-center gap-2">
+                        <span class="bg-blue-600 text-white w-6 h-6 rounded flex items-center justify-center text-xs">2</span>
+                        DATA MATURITY ARCHITECTURE
+                    </h2>
+
+                    <div class="space-y-6 max-w-xl">
+                        <div class="arch-step flex items-start gap-6">
+                            <div class="z-10 w-10 h-10 rounded-full bg-indigo-600 text-white flex items-center justify-center shadow-lg shrink-0">
+                                <i class="fas fa-display text-sm"></i>
+                            </div>
+                            <div class="bg-white p-3 rounded-lg border border-slate-200 shadow-sm flex-1">
+                                <div class="flex justify-between items-center mb-1">
+                                    <span class="text-xs font-bold text-indigo-600 uppercase">Layer 5: Delivery</span>
+                                    <span class="text-[10px] px-2 py-0.5 bg-indigo-50 text-indigo-700 rounded-full font-bold">Role-Based Access</span>
+                                </div>
+                                <p class="text-xs text-slate-600">
+                                    Executive aggregates, Dean/program views, and student-success operational views (authorized roles only).
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="arch-step flex items-start gap-6">
+                            <div class="z-10 w-10 h-10 rounded-full bg-blue-500 text-white flex items-center justify-center shadow-lg shrink-0">
+                                <i class="fas fa-certificate text-sm"></i>
+                            </div>
+                            <div class="bg-white p-3 rounded-lg border border-slate-200 shadow-sm flex-1">
+                                <div class="flex justify-between items-center mb-1">
+                                    <span class="text-xs font-bold text-blue-600 uppercase">Layer 4: Certification</span>
+                                    <span class="text-[10px] px-2 py-0.5 bg-blue-50 text-blue-700 rounded-full font-bold">Certified Views</span>
+                                </div>
+                                <p class="text-xs text-slate-600">
+                                    Canonical SQL views with documented definitions (cohort, census timing, risk flags, fill rate logic).
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="arch-step flex items-start gap-6">
+                            <div class="z-10 w-10 h-10 rounded-full bg-slate-400 text-white flex items-center justify-center shadow-lg shrink-0">
+                                <i class="fas fa-database text-sm"></i>
+                            </div>
+                            <div class="bg-slate-200/50 p-3 rounded-lg border border-dashed border-slate-300 flex-1">
+                                <span class="text-xs font-bold text-slate-600 uppercase">Layers 1–3: Integration & Staging</span>
+                                <p class="text-xs text-slate-500 mt-1 italic">
+                                    Ethos API staging → validation (orphan checks, term alignment) → canonical mapping (IDs, programs, courses).
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mt-8 flex items-center gap-3 bg-white p-3 rounded-xl border border-blue-100">
+                        <i class="fas fa-shield-halved text-blue-600"></i>
+                        <p class="text-xs font-medium text-slate-700">
+                            <strong>Governance:</strong> No analytics runs against production transactions. Dashboards point exclusively to
+                            <span class="text-blue-600">Layer 4 Certified Views</span> with controlled refresh and audit checks.
+                        </p>
+                    </div>
+                </section>
+
+                <section class="bg-[#0f172a] rounded-2xl p-6 text-white">
+                    <div class="grid grid-cols-3 gap-6">
+                        <div class="space-y-1">
+                            <p class="text-[10px] font-bold text-blue-400 uppercase tracking-tighter">Security</p>
+                            <p class="text-xs text-slate-300">FERPA-aligned. Small-cell suppression (&lt;5) for published aggregates.</p>
+                        </div>
+                        <div class="space-y-1 border-x border-slate-700 px-6">
+                            <p class="text-[10px] font-bold text-blue-400 uppercase tracking-tighter">Validation</p>
+                            <p class="text-xs text-slate-300">Orphan checks, term coverage checks, and census-aligned definitions.</p>
+                        </div>
+                        <div class="space-y-1">
+                            <p class="text-[10px] font-bold text-blue-400 uppercase tracking-tighter">Identity</p>
+                            <p class="text-xs text-slate-300">PII restricted; staff access via role-based security + audit trail.</p>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+
+        <footer class="bg-slate-50 px-10 py-4 flex justify-between items-center border-t border-slate-200 text-[10px] text-slate-500 font-medium">
+            <div class="flex gap-6">
+                <span>© 2026 Institutional Research & Technology</span>
+                <span class="flex items-center gap-1"><i class="fas fa-flask"></i> SYNTHETIC DATA PROTOTYPE</span>
+            </div>
+            <div class="flex gap-4">
+                <span class="bg-slate-200 px-2 py-0.5 rounded">INTERNAL USE ONLY</span>
+                <span class="font-bold text-slate-800 tracking-widest uppercase text-xs">Slide 01</span>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>
