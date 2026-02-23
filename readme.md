@@ -139,7 +139,7 @@ Repository Structure
 
 /notebooks
   synthetic_data_generator.ipynb
-Intended Audience
+
 ```
 
 This prototype is structured for:
