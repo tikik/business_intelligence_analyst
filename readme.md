@@ -1,54 +1,55 @@
-Ethos-Aligned Institutional Analytics Prototype
+## Ethos-Aligned Institutional Analytics Prototype
 
 Governance-First Integration • Certified Metrics • Decision Support
 
-Prepared by teah
-Business Intelligence Analyst Candidate
-February 2026
+---
 
-Executive Overview
+### Executive Overview
 
 This repository presents a governance-aligned institutional analytics prototype designed to demonstrate:
 
-Multi-system integration (Banner, Navigate, Ad Astra via Ethos)
+- Multi-system integration (Banner, Navigate, Ad Astra via Ethos)
 
-Certified metric construction using SQL views
+- Certified metric construction using SQL views
 
-Census-aligned cohort logic
+- Census-aligned cohort logic
 
-FERPA-aware aggregation and small-cell suppression
+- FERPA-aware aggregation and small-cell suppression
 
-Role-based dashboard delivery in Power BI
+- Role-based dashboard delivery in Power BI
 
 The goal of this prototype is to illustrate how institutional data can move from reactive reporting toward proactive, repeatable decision support — while maintaining data governance standards.
 
 This repository contains synthetic data only. No real student information is included.
 
-Strategic Purpose
+---
+
+### Strategic Purpose
 
 Institutions frequently encounter:
 
-Conflicting definitions across systems
+- Conflicting definitions across systems
 
-Manual reporting workflows
+- Manual reporting workflows
 
-Inconsistent cohort logic
+- Inconsistent cohort logic
 
-Capacity planning blind spots
+- Capacity planning blind spots
 
-Graduation and credential capture gaps
+- Graduation and credential capture gaps
 
 This prototype addresses those challenges by introducing a layered architecture:
 
-Integration & Validation
+- Integration & Validation
 
-Certified Metric Views
+- Certified Metric Views
 
-Role-Based Dashboard Delivery
+- Role-Based Dashboard Delivery
 
 Dashboards do not query transactional tables directly. All reporting logic flows through certified SQL views.
 
-What This Prototype Demonstrates
+#### What This Prototype Demonstrates
+
 1. Certified Definitions
 
 Cohort logic, graduation metrics, and credit velocity thresholds are defined in reusable SQL views. This prevents silent definition drift across reports.
@@ -73,8 +74,9 @@ Which programs drive retention stability?
 
 Are certificate completions being captured before transfer?
 
-Architecture Overview
-Layer 1–3: Integration & Validation
+### Architecture Overview
+
+- Layer 1–3: Integration & Validation
 
 Ethos API staging
 
@@ -84,7 +86,7 @@ Term alignment verification
 
 Canonical ID mapping
 
-Layer 4: Certified Views
+- Layer 4: Certified Views
 
 Graduation rate by entry cohort
 
@@ -98,7 +100,7 @@ Credential capture tracking
 
 These views serve as the institutional “single source of truth.”
 
-Layer 5: Delivery
+- Layer 5: Delivery
 
 Power BI dashboards provide:
 
@@ -119,6 +121,8 @@ Separation of staging logic from presentation layer
 Small-cell suppression applied before publication
 
 Metric definitions documented and version-controlled
+
+---
 
 Repository Structure
 /docs
@@ -148,6 +152,8 @@ Executive decision-makers
 
 The emphasis is on governance maturity, definition clarity, and repeatable reporting structures.
 
-Closing Note
+---
+
+### Closing Note
 
 This repository is not intended to represent production institutional data. It is a structured demonstration of how higher education analytics can be implemented in a governed, sustainable, and decision-ready framework.
