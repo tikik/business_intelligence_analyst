@@ -125,7 +125,7 @@ Metric definitions documented and version-controlled
 ---
 
 Repository Structure
-'''
+```
 /docs
   Executive_Overview_Page1.docx
   Ethos_Architecture.pdf
@@ -140,7 +140,8 @@ Repository Structure
 /notebooks
   synthetic_data_generator.ipynb
 Intended Audience
-'''
+```
+
 This prototype is structured for:
 
 Institutional Research leadership
